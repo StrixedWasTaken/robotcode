@@ -7,24 +7,25 @@ using code = vision::code;
 // A global instance of brain used for printing to the V5 Brain screen
 brain  Brain;
 
-// VEXcode device constructors
-motor l1 = motor(PORT4, ratio6_1, true); 
-motor l2 = motor(PORT11, ratio6_1, true);
-motor l3 = motor(PORT18, ratio6_1, true);
-motor r1 = motor(PORT17, ratio6_1, false);
-motor r2 = motor(PORT20, ratio6_1, false);
-motor r3 = motor(PORT12, ratio6_1, false);
-motor leftintake = motor(PORT9, ratio6_1, false);
-motor rightintake = motor(PORT2, ratio6_1, true); 
-//motor lift = motor(PORT30, ratio6_1, false);
-inertial imu = inertial(PORT16);
-optical colorsensor = optical(PORT9);
+motor l1 = motor(PORT5, ratio6_1, true); 
+motor l2 = motor(PORT3, ratio6_1, true);
+motor l3 = motor(PORT1, ratio6_1, false);
+motor r1 = motor(PORT4, ratio6_1, false);
+motor r2 = motor(PORT8, ratio6_1, false);
+motor r3 = motor(PORT7, ratio6_1, true);
+inertial imu = inertial(PORT13);
+motor intake = motor(PORT10, ratio6_1, false);
+motor frontintake = motor(PORT6, ratio18_1, false);
+motor_group intakes = motor_group(intake, frontintake);
+optical colorsensor = optical(PORT20);
+rotation ladyLift = rotation(PORT12, true);
+motor ladybrown = motor(PORT16, ratio18_1, true);
 controller Controller1 = controller(primary);
 motor_group Left = motor_group(l1, l2, l3);
 motor_group Right = motor_group(r1, r2, r3);
-digital_out clamp = digital_out(Brain.ThreeWirePort.A);
-digital_out backclamp = digital_out(Brain.ThreeWirePort.B);
-//rotation rotation_lift = rotation(PORT18);
+digital_out doinker = digital_out(Brain.ThreeWirePort.F);
+digital_out intakelift = digital_out(Brain.ThreeWirePort.G);
+digital_out backclamp = digital_out(Brain.ThreeWirePort.H);
 // VEXcode generated functions
 // define variable for remote controller enable/disable
 bool RemoteControlCodeEnabled = true;
